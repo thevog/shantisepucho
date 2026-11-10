@@ -1,0 +1,121 @@
+<!--
+=====================================================================
+  EDIT ONLY THIS BLOCK (सिर्फ़ यही हिस्सा बदलें)
+=====================================================================
+-->
+<script>
+  var CONFIG = {
+    // 1) Center image (Image 2) – paste your Blogger image URL here
+    imageUrl:   "PASTE_YOUR_BLOGGER_IMAGE_URL_HERE",
+
+    // 2) Where the button goes
+    buttonUrl:  "https://napptix.g2afse.com/click?pid=573&offer_id=685",
+
+    // 3) Button text
+    buttonText: "Click here",
+
+    // 4) Open link in a new tab? (true / false)
+    newTab:     false,
+
+    // 5) Colors
+    bgColorTop:     "#3f6b35",   // page background glow
+    bgColorMid:     "#245a2c",
+    bgColorBottom:  "#0f3320",
+    cardColor:      "#0f1f16",   // dark card
+    borderColor:    "#5f9a3a",   // thin border around image
+    buttonColorA:   "#6fa84a",   // button gradient start
+    buttonColorB:   "#2f7a3c",   // button gradient end
+    buttonTextColor:"#ffffff",
+
+    // 6) Sizes
+    cardMaxWidth:   "360px"
+  };
+</script>
+<!--
+=====================================================================
+  END OF EDIT BLOCK – नीचे कुछ बदलने की ज़रूरत नहीं
+=====================================================================
+-->
+
+<style>
+  .wl-page, .wl-page * { box-sizing: border-box; }
+  .wl-page {
+    min-height: 100vh;
+    margin: 0;
+    padding: 24px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Noto Sans Devanagari", "Segoe UI", Roboto, Arial, sans-serif;
+    background:
+      radial-gradient(ellipse at 20% 5%, var(--bg-top) 0%, transparent 55%),
+      linear-gradient(160deg, var(--bg-mid) 0%, var(--bg-bottom) 100%);
+  }
+  .wl-card {
+    width: 100%;
+    max-width: var(--card-w);
+    padding: 22px;
+    border-radius: 24px;
+    background: var(--card);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .45);
+  }
+  .wl-frame {
+    border: 1.5px solid var(--border);
+    border-radius: 22px;
+    overflow: hidden;
+    background: var(--bg-mid);
+  }
+  .wl-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+  .wl-btn {
+    display: block;
+    margin-top: 22px;
+    padding: 20px 16px;
+    border-radius: 999px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--btn-text);
+    background: linear-gradient(100deg, var(--btn-a), var(--btn-b));
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .35);
+    transition: transform .15s ease, filter .15s ease;
+  }
+  .wl-btn:hover  { filter: brightness(1.08); }
+  .wl-btn:active { transform: scale(.97); }
+  .wl-btn:focus-visible { outline: 3px solid #d9f24a; outline-offset: 3px; }
+</style>
+
+<div class="wl-page" id="wlPage">
+  <div class="wl-card">
+    <div class="wl-frame"><img id="wlImg" alt="WhatsApp पर जाने के लिए नीचे दिए गए बटन पर क्लिक करें"></div>
+    <a class="wl-btn" id="wlBtn" href="#"></a>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var c = CONFIG, s = document.getElementById("wlPage").style;
+    s.setProperty("--bg-top", c.bgColorTop);
+    s.setProperty("--bg-mid", c.bgColorMid);
+    s.setProperty("--bg-bottom", c.bgColorBottom);
+    s.setProperty("--card", c.cardColor);
+    s.setProperty("--border", c.borderColor);
+    s.setProperty("--btn-a", c.buttonColorA);
+    s.setProperty("--btn-b", c.buttonColorB);
+    s.setProperty("--btn-text", c.buttonTextColor);
+    s.setProperty("--card-w", c.cardMaxWidth);
+
+    document.getElementById("wlImg").src = c.imageUrl;
+
+    var b = document.getElementById("wlBtn");
+    b.href = c.buttonUrl;
+    b.textContent = c.buttonText;
+    if (c.newTab) { b.target = "_blank"; b.rel = "noopener"; }
+  })();
+</script>
